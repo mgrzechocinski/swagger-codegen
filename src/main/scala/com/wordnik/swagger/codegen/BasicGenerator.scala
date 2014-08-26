@@ -53,6 +53,7 @@ abstract class BasicGenerator extends CodegenConfig with PathUtil {
 
   @deprecated(message = "please use the generate function", since = "2.0.16")
   def generateClient(args: Array[String]): Unit = {
+    SecurityBypasser.destroyAllSSLSecurityForTheEntireVMForever()
     generateClientWithoutExit(args)
     System.exit(0)
   }
@@ -373,7 +374,7 @@ abstract class BasicGenerator extends CodegenConfig with PathUtil {
       m += "modelPackage" -> modelPackage
 
       m ++= additionalParams
-      
+
       Some(m.toMap)
     }).flatten.toList
   }
