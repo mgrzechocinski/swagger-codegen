@@ -530,7 +530,7 @@ class ModelPropertySerializationTest extends FlatSpec with ShouldMatchers {
   }
 
   it should "serialize a model property with allowable values and ref" in {
-    val p = ModelProperty("string", "string", 0, false, Some("nice"), AllowableListValues(List("a","b")),Some(ModelRef("Foo",Some("Bar"))))
+    val p = ModelProperty("string", "string", 0, false, Some("nice"), Some("default"), AllowableListValues(List("a","b")),Some(ModelRef("Foo",Some("Bar"))))
     write(p) should be ("""{"type":"string","required":false,"description":"nice","allowableValues":{"valueType":"LIST","values":["a","b"]},"items":{"type":"Foo","$ref":"Bar"}}""")
   }
 
@@ -562,7 +562,7 @@ class ModelPropertySerializationTest extends FlatSpec with ShouldMatchers {
   }
 
   it should "serialize a model property with allowable values" in {
-    val p = ModelProperty("string", "string", 0, false, Some("nice"), AllowableListValues(List("a","b")))
+    val p = ModelProperty("string", "string", 0, false, Some("nice"), Some("default"), AllowableListValues(List("a","b")))
     write(p) should be ("""{"type":"string","required":false,"description":"nice","allowableValues":{"valueType":"LIST","values":["a","b"]}}""")
   }
 

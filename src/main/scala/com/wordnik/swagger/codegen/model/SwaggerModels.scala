@@ -60,6 +60,7 @@ case class ModelProperty(
   position: Int = 0,
   required: Boolean = false,
   description: Option[String] = None,
+  defaultValue: Option[String] = None,
   allowableValues: AllowableValues = AnyAllowableValues,
   var items: Option[ModelRef] = None)
 

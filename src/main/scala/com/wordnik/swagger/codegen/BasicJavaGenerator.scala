@@ -210,12 +210,13 @@ class BasicJavaGenerator extends BasicGenerator {
    */
   override def toDefaultValue(dataType: String, obj: ModelProperty) = {
     dataType match {
-      case "Boolean" => "null"
-      case "Integer" => "null"
-      case "Long" => "null"
-      case "Short" => "null"
-      case "Float" => "null"
-      case "Double" => "null"
+      case "Boolean" => obj.defaultValue.getOrElse("")
+      case "Integer" => obj.defaultValue.getOrElse("")
+      case "Long" => obj.defaultValue.getOrElse("")
+      case "Short" => obj.defaultValue.getOrElse("")
+      case "Float" => obj.defaultValue.getOrElse("") + "f"
+      case "Double" => obj.defaultValue.getOrElse("")
+      case "String" => "\"" + obj.defaultValue.getOrElse("") + "\""
       case "List" => {
         val inner = {
           obj.items match {
@@ -226,7 +227,7 @@ class BasicJavaGenerator extends BasicGenerator {
             }
           }
         }
-        "new ArrayList<" + toDeclaredType(inner) + ">" + "()"
+        String.format("Arrays.asList(new %s(), new %s())", toDeclaredType(inner), toDeclaredType(inner))
       }
       case _ => "null"
     }

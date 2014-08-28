@@ -545,6 +545,7 @@ object SwaggerSerializers {
           case _ => false
         },
         description = (json \ "description").extractOpt[String],
+        defaultValue = (json \ "defaultValue").extractOpt[String],
         allowableValues = allowableValues,
         items = {
           (json \ "items").extractOpt[ModelRef] match {
