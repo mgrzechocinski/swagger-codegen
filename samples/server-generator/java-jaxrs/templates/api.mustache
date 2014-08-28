@@ -69,7 +69,7 @@ public class {{className}} {
   )
       throws NotFoundException {
       // do some magic!
-      return Response.ok().entity(new ApiResponse(ApiResponse.OK, "magic!")).build();
+      return Response.ok().entity(new {{{returnType}}}()).build();
   }
 
   {{/operation}}
