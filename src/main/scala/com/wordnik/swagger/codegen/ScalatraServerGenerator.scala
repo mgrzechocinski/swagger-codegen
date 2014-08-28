@@ -1,3 +1,5 @@
+package com.wordnik.swagger.codegen
+
 /**
  *  Copyright 2014 Wordnik, Inc.
  *
@@ -13,10 +15,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
-import com.wordnik.swagger.codegen.BasicScalaGenerator
-
-import scala.collection.mutable.{ HashMap, ListBuffer }
 
 object ScalatraServerGenerator extends BasicScalaGenerator {
   def main(args: Array[String]) = generateClient(args)

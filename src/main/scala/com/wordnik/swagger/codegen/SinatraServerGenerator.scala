@@ -1,3 +1,5 @@
+package com.wordnik.swagger.codegen
+
 /**
  *  Copyright 2014 Wordnik, Inc.
  *
@@ -14,11 +16,7 @@
  *  limitations under the License.
  */
 
-import com.wordnik.swagger.codegen.BasicRubyGenerator
-
 import java.io.File
-
-import scala.collection.mutable.{ HashMap, ListBuffer }
 
 object SinatraServerGenerator extends BasicRubyGenerator {
   def main(args: Array[String]) = generateClient(args)

@@ -1,3 +1,5 @@
+package com.wordnik.swagger.codegen
+
 /**
  *  Copyright 2014 Wordnik, Inc.
  *
@@ -13,10 +15,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-
-import com.wordnik.swagger.codegen.BasicJavaGenerator
-
-import scala.collection.mutable.{ HashMap, ListBuffer }
 
 object JavaJaxRSServerGenerator extends BasicJavaGenerator {
   def main(args: Array[String]) = generateClient(args)
@@ -66,7 +64,7 @@ object JavaJaxRSServerGenerator extends BasicJavaGenerator {
               if(map("required") == "false") map += "notRequired" -> "true"
             }
             if(map.contains("defaultValue")) {
-            	// unquote default value
+              // unquote default value
             	val defaultValue = {
             		map("defaultValue") match {
             			case Some(d) => {
